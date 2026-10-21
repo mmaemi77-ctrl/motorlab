@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0E141B">
+<title>Мотор Лаб · автосервис</title>
+<meta name="description" content="Автосервис «Мотор Лаб»: диагностика, ТО, ремонт двигателя, шиномонтаж. Онлайн-запись со стоимостью работ и статус ремонта на сайте.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Golos+Text:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#0E141B;--bg2:#151D26;--card:#1A2430;--line:#283442;--ink:#EEF2F6;--soft:#93A1B1;
+  --acc:#FF6A1A;--acc-d:#E2550A;--blue:#2F6BFF;--light:#F2F4F7;--lightink:#111820;
+  --r:18px
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 "Golos Text",system-ui,sans-serif;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+.wrap{width:min(1160px,100% - 32px);margin-inline:auto}
+.wrap>*,.g2>*{min-width:0}
+h1,h2,h3{font-family:Unbounded,system-ui,sans-serif;font-weight:600;line-height:1.12;letter-spacing:-.01em}
+h2{font-size:clamp(26px,3.8vw,42px);margin-bottom:14px}
+.kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);font-weight:700;margin-bottom:12px;display:block}
+.lead{color:var(--soft);max-width:580px}
+section{padding:clamp(64px,9vw,104px) 0;scroll-margin-top:60px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:15px 24px;font-weight:600;font-size:15px;cursor:pointer;text-decoration:none;transition:transform .15s,background .2s;white-space:nowrap}
+.btn:active{transform:scale(.97)}
+.btn-acc{background:var(--acc);color:#fff}
+.btn-acc:hover{background:var(--acc-d)}
+.btn-line{background:transparent;border:1.5px solid #3A4757;color:var(--ink)}
+.btn-line:hover{border-color:var(--ink)}
+
+header{position:sticky;top:0;z-index:40;background:rgba(14,20,27,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent}
+header.scrolled{border-color:var(--line)}
+.hrow{display:flex;align-items:center;justify-content:space-between;height:66px;gap:14px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:Unbounded,sans-serif;font-weight:700;font-size:18px;letter-spacing:.02em}
+.logo i{width:30px;height:30px;border-radius:8px;background:var(--acc);display:grid;place-items:center;font-style:normal}
+nav.main{display:flex;gap:26px;font-size:14px;font-weight:500}
+nav.main a{text-decoration:none;color:var(--soft)}
+nav.main a:hover{color:var(--ink)}
+.hrow .btn{padding:11px 18px;font-size:14px}
+@media(max-width:900px){nav.main{display:none}}
+@media(max-width:400px){.logo{font-size:15px}.hrow .btn{padding:10px 12px}}
+
+.hero{padding:30px 0 70px}
+.hgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+.hgrid>*{min-width:0}
+.hero h1{font-size:clamp(32px,5vw,58px);margin:6px 0 18px}
+.hero h1 span{color:var(--acc)}
+.hero .lead{font-size:18px;margin-bottom:28px}
+.hbtns{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:30px}
+.stats{display:grid;grid-template-columns:repeat(3,auto);gap:14px 30px;justify-content:start}
+.stats b{display:block;font-family:Unbounded,sans-serif;font-size:24px}
+.stats span{font-size:13px;color:var(--soft)}
+.hph{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/5}
+.hph img{width:100%;height:100%;object-fit:cover}
+.live{position:absolute;left:14px;right:14px;bottom:14px;background:rgba(14,20,27,.86);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:flex;gap:12px;align-items:center;font-size:13px}
+.live i{flex:none;width:10px;height:10px;border-radius:50%;background:#2FD07A;box-shadow:0 0 0 5px rgba(47,208,122,.18)}
+.live b{display:block;font-size:14px}
+@media(max-width:860px){.hgrid{grid-template-columns:1fr;gap:28px}.hph{order:-1;aspect-ratio:4/3.6}.hero{padding-top:14px}}
+@media(max-width:560px){.hbtns .btn{flex:1 1 100%}.stats{grid-template-columns:repeat(3,1fr);gap:10px}.stats b{font-size:20px}}
+
+.strip{border-block:1px solid var(--line);background:var(--bg2)}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding:22px 0;font-size:14px;color:var(--soft)}
+.strip b{color:var(--ink);display:block;font-size:15px}
+@media(max-width:760px){.strip .wrap{grid-template-columns:1fr 1fr}}
+
+.svcs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.svc .ph{aspect-ratio:16/11;overflow:hidden}
+.svc .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.svc:hover .ph img{transform:scale(1.05)}
+.svc .b{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.svc h3{font-size:17px}
+.svc p{font-size:14px;color:var(--soft)}
+.svc .row{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:6px}
+.svc .row b{font-size:17px}
+.svc button{background:none;border:0;color:var(--acc);font-weight:600;cursor:pointer;font-size:14px}
+.svc.list{padding:20px;justify-content:flex-start;grid-column:span 2}
+.svc.list ul{column-count:2;column-gap:28px}
+@media(max-width:600px){.svc.list{grid-column:auto}.svc.list ul{column-count:1}}
+.svc.list ul{list-style:none}
+.svc.list li{break-inside:avoid}
+.ask{margin-top:auto;background:var(--bg);border:1px dashed #3A4757;border-radius:14px;padding:16px;display:grid;gap:6px;font-size:14px;color:var(--soft)}
+.ask b{color:var(--ink);font-size:15px}
+.ask .btn{justify-self:start;margin-top:6px;padding:11px 18px;font-size:14px}
+.svc.list h3{margin-bottom:8px}
+.svc.list li{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14px}
+.svc.list li:last-child{border-bottom:0}
+.svc.list li b{white-space:nowrap}
+@media(max-width:900px){.svcs{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.svcs{grid-template-columns:1fr}.svc .ph{aspect-ratio:16/9}}
+
+.book{background:var(--bg2);border-block:1px solid var(--line)}
+.g2{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;margin-top:30px;align-items:start}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px}
+.lbl{display:block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin:22px 0 10px}
+.lbl.first{margin-top:0}
+.inp,select.inp{width:100%;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);padding:13px 14px;font-size:16px;outline:none}
+select.inp{appearance:none;-webkit-appearance:none;background:var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2393A1B1' stroke-width='1.6' fill='none'/%3E%3C/svg%3E") no-repeat right 14px center;padding-right:36px}
+.inp:focus{border-color:var(--acc)}
+.inp::placeholder{color:#62707F}
+.three{display:grid;grid-template-columns:1fr 1fr .7fr;gap:10px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:520px){.three{grid-template-columns:1fr 1fr}.three>:last-child{grid-column:span 2}.two{grid-template-columns:1fr}}
+.works{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.wk{display:flex;align-items:center;gap:10px;border:1.5px solid var(--line);background:var(--bg);border-radius:12px;padding:10px 12px;cursor:pointer;font-size:14px;line-height:1.3}
+.wk input{width:18px;height:18px;accent-color:var(--acc);flex:none}
+.wk span{flex:1}
+.wk small{display:block;color:var(--soft);font-size:12px}
+.wk:has(input:checked){border-color:var(--acc);background:rgba(255,106,26,.08)}
+@media(max-width:520px){.works{grid-template-columns:1fr}}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1.5px solid var(--line);background:var(--bg);border-radius:12px;padding:8px 12px;cursor:pointer;font-size:13px;line-height:1.25;text-align:center;min-width:56px}
+.chip b{display:block;font-size:16px}
+.chip[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:#fff}
+.chip:disabled{opacity:.3;text-decoration:line-through;cursor:not-allowed}
+#bTimes{flex-wrap:wrap;overflow:visible}
+.sum{position:sticky;top:84px}
+.sum h3{font-size:20px;margin-bottom:12px}
+.rows{list-style:none;display:grid;gap:8px;font-size:14px;margin-bottom:14px}
+.rows li{display:flex;justify-content:space-between;gap:12px}
+.rows li span{color:var(--soft)}
+.tot{display:flex;justify-content:space-between;align-items:baseline;border-top:1px dashed var(--line);padding-top:14px}
+.tot b{font-family:Unbounded,sans-serif;font-size:26px}
+.note{font-size:13px;color:var(--soft);margin:6px 0 16px}
+.sum .inp{margin-bottom:10px}
+.sum .btn{width:100%}
+.err{color:#FF8A6A;font-size:13px;min-height:18px;margin-bottom:6px}
+.done{text-align:center}
+.done .ok{width:58px;height:58px;border-radius:50%;background:var(--acc);display:grid;place-items:center;margin:0 auto 14px;font-size:28px}
+.tg{margin:18px auto 0;background:#E9EEF3;border-radius:18px;padding:14px;text-align:left;color:#1B2530}
+.tg .hd{font-size:11px;color:#6B7785;text-align:center;margin-bottom:10px}
+.tg .msg{background:#fff;border-radius:14px 14px 14px 4px;padding:11px 13px;font-size:13px;line-height:1.5}
+.tg .msg b{color:#2B6CB0}
+.tg .tm{font-size:10px;color:#9AA5B1;text-align:right;margin-top:4px}
+@media(max-width:900px){.g2{grid-template-columns:1fr}.sum{position:static;scroll-margin-top:80px}}
+@media(max-width:480px){.panel{padding:18px}}
+
+.status{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:center}
+.status>*{min-width:0}
+.sph{border-radius:22px;overflow:hidden;aspect-ratio:4/4.4}
+.sph img{width:100%;height:100%;object-fit:cover}
+.track{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;margin-top:24px}
+.track form{display:flex;gap:10px}
+.track form .inp{flex:1;min-width:0}
+.steps{list-style:none;margin-top:20px;display:none;gap:0}
+.steps.show{display:grid}
+.steps li{display:grid;grid-template-columns:28px 1fr auto;gap:12px;align-items:start;padding-bottom:16px;position:relative;font-size:14px}
+.steps li::before{content:"";position:absolute;left:13px;top:26px;bottom:0;width:2px;background:var(--line)}
+.steps li:last-child::before{display:none}
+.steps i{width:28px;height:28px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-style:normal;font-size:13px;background:var(--bg);position:relative;z-index:1}
+.steps li.ok i{background:#2FD07A;border-color:#2FD07A;color:#0E141B}
+.steps li.now i{border-color:var(--acc);color:var(--acc)}
+.steps li.now b{color:var(--acc)}
+.steps small{color:var(--soft);display:block}
+.steps time{color:var(--soft);font-size:12px}
+@media(max-width:860px){.status{grid-template-columns:1fr}.sph{aspect-ratio:4/3}}
+@media(max-width:420px){.track form{flex-direction:column}}
+
+.light{background:var(--light);color:var(--lightink)}
+.light .lead{color:#5A6676}
+.light .kicker{color:var(--acc-d)}
+.why{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+.why figure{position:relative;border-radius:22px;overflow:hidden;min-height:380px}
+.why img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.why figcaption{position:absolute;left:0;right:0;bottom:0;padding:60px 22px 20px;background:linear-gradient(transparent,rgba(10,14,20,.88));color:#fff}
+.why figcaption b{display:block;font-family:Unbounded,sans-serif;font-size:20px;margin-bottom:4px}
+.why figcaption span{font-size:14px;opacity:.85}
+.pts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+.pts div{background:#fff;border-radius:16px;padding:18px;box-shadow:0 14px 30px -24px rgba(0,0,0,.4)}
+.pts b{display:block;font-family:Unbounded,sans-serif;font-size:22px;color:var(--acc-d)}
+.pts span{font-size:13px;color:#5A6676}
+@media(max-width:760px){.why{grid-template-columns:1fr}.why figure{min-height:300px}.pts{grid-template-columns:1fr 1fr}}
+
+.rv{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+.rv article{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:12px}
+.rv .st{color:#FFB547;letter-spacing:3px}
+.rv footer{font-size:13px;color:var(--soft);margin-top:auto}
+@media(max-width:860px){.rv{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:84%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;scrollbar-width:none}.rv::-webkit-scrollbar{display:none}.rv article{scroll-snap-align:start}}
+
+.faq{max-width:760px;margin-top:26px}
+.faq details{border-bottom:1px solid var(--line);padding:18px 0}
+.faq summary{list-style:none;cursor:pointer;font-weight:600;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:22px;line-height:1;color:var(--acc);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--soft);margin-top:10px;font-size:15px}
+
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.cbox{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.cbox dt{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-weight:700}
+.cbox dd{font-size:17px;margin-top:4px}
+@media(max-width:760px){.cgrid{grid-template-columns:1fr}}
+
+footer.site{border-top:1px solid var(--line);padding:30px 0 24px;font-size:13px;color:var(--soft)}
+footer.site .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer.site a{text-decoration:none}
+
+.mbar{display:none}
+@media(max-width:760px){
+  .mbar{display:flex;gap:8px;position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:50;background:rgba(26,36,48,.96);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:16px;padding:6px;box-shadow:0 10px 30px -10px rgba(0,0,0,.6);transition:transform .25s}
+  .mbar.hide{transform:translateY(150%)}
+  .mbar .btn{flex:1;padding:13px 10px}
+  .mbar .call{flex:none;width:48px;padding:0;background:#2A3644}
+  footer.site{padding-bottom:96px}
+}
+.toast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,20px);background:#fff;color:#111;border-radius:12px;padding:12px 20px;font-size:14px;opacity:0;pointer-events:none;transition:.3s;z-index:60;max-width:calc(100% - 32px);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap hrow">
+    <a class="logo" href="#top"><i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg></i>Мотор Лаб</a>
+    <nav class="main">
+      <a href="#services">Услуги и цены</a>
+      <a href="#book">Запись</a>
+      <a href="#status">Статус ремонта</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn btn-acc" href="#book">Записаться</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap hgrid">
+    <div>
+      <span class="kicker">Автосервис · ежедневно 9:00–21:00</span>
+      <h1>Цена ремонта <span>до того,</span> как вы приехали</h1>
+      <p class="lead">Выберите машину и работы, и сайт сразу покажет стоимость и время. Запись на удобный час без звонков, а статус ремонта видно с телефона.</p>
+      <div class="hbtns">
+        <a class="btn btn-acc" href="#book">Рассчитать и записаться</a>
+        <a class="btn btn-line" href="#services">Смотреть цены</a>
+      </div>
+      <div class="stats">
+        <div><b>12 лет</b><span>чиним машины</span></div>
+        <div><b>6 постов</b><span>без очереди</span></div>
+        <div><b>1 год</b><span>гарантии на работы</span></div>
+      </div>
+    </div>
+    <div class="hph">
+      <img src="img/lift.jpg" alt="Автомобиль на подъёмнике в чистом боксе" fetchpriority="high">
+      <div class="live"><i></i><div><b id="liveTxt">Сегодня есть свободные окна</b>ближайшее: <span id="liveSlot">через 2 часа</span></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="strip"><div class="wrap">
+  <div><b>Фиксированная цена</b>сумма не вырастет без вашего согласия</div>
+  <div><b>Свои запчасти?</b>Ставим, гарантия на работу та же</div>
+  <div><b>Фото и видео</b>присылаем, что нашли при ремонте</div>
+  <div><b>Зона ожидания</b>кофе, Wi-Fi и диван</div>
+</div></div>
+
+<section id="services">
+  <div class="wrap">
+    <span class="kicker">Услуги и цены</span>
+    <h2>Что делаем</h2>
+    <p class="lead">Цены для легковых машин. Для кроссоверов и премиум-класса сайт пересчитает стоимость при записи.</p>
+    <div class="svcs" id="svcs"></div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="wrap">
+    <span class="kicker">Онлайн-запись</span>
+    <h2>Посчитайте ремонт за минуту</h2>
+    <p class="lead">Отметьте работы, и сумма посчитается сама. Мастер получит заявку сразу с маркой машины и списком работ.</p>
+    <div class="g2">
+      <div class="panel">
+        <span class="lbl first">Автомобиль</span>
+        <div class="three">
+          <select class="inp" id="cBrand" aria-label="Марка"></select>
+          <input class="inp" id="cModel" placeholder="Модель" maxlength="24">
+          <select class="inp" id="cYear" aria-label="Год"></select>
+        </div>
+        <span class="lbl">Что нужно сделать</span>
+        <div class="works" id="works"></div>
+        <span class="lbl">День</span>
+        <div class="chips" id="bDays"></div>
+        <span class="lbl">Время</span>
+        <div class="chips" id="bTimes"></div>
+      </div>
+      <div class="panel sum" id="sum">
+        <div id="sumForm">
+          <h3>Ваша запись</h3>
+          <ul class="rows" id="rows"></ul>
+          <div class="tot"><span>Итого</span><b id="total">0 ₽</b></div>
+          <p class="note" id="note">Отметьте хотя бы одну работу</p>
+          <div class="two"><input class="inp" id="bName" placeholder="Имя" maxlength="40" autocomplete="given-name"><input class="inp" id="bPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__"></div>
+          <div class="err" id="bErr"></div>
+          <button class="btn btn-acc" id="bGo">Записаться</button>
+        </div>
+        <div class="done" id="sumDone" hidden>
+          <div class="ok">✓</div>
+          <h3>Вы записаны!</h3>
+          <p class="note" id="doneTxt"></p>
+          <div class="tg"><div class="hd">Так заявка приходит мастеру в Telegram</div><div class="msg" id="tgMsg"></div><div class="tm" id="tgTm"></div></div>
+          <button class="btn btn-line" id="bAgain" style="margin-top:16px;width:100%">Новая запись</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="status">
+  <div class="wrap status">
+    <div class="sph"><img src="img/tablet.jpg" alt="Мастер проводит компьютерную диагностику" loading="lazy"></div>
+    <div>
+      <span class="kicker">Статус ремонта</span>
+      <h2>Где сейчас моя машина?</h2>
+      <p class="lead">Не нужно звонить и спрашивать «ну как там». Введите номер телефона и смотрите, на каком этапе ремонт.</p>
+      <div class="track">
+        <form id="tForm"><input class="inp" id="tPhone" type="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" autocomplete="tel"><button class="btn btn-acc" type="submit">Проверить</button></form>
+        <div class="err" id="tErr" style="margin:8px 0 0"></div>
+        <ol class="steps" id="steps">
+          <li class="ok"><i>✓</i><div><b>Машина принята</b><small>Осмотр, фото кузова</small></div><time>9:12</time></li>
+          <li class="ok"><i>✓</i><div><b>Диагностика</b><small>Нашли износ передних колодок, фото отправили в WhatsApp</small></div><time>10:05</time></li>
+          <li class="now"><i>3</i><div><b>Ремонт</b><small>Замена колодок и дисков, осталось около 40 минут</small></div><time>сейчас</time></li>
+          <li><i>4</i><div><b>Готова к выдаче</b><small>Пришлём сообщение, когда можно забирать</small></div><time></time></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light">
+  <div class="wrap">
+    <span class="kicker">Почему к нам</span>
+    <h2>Сервис, в котором не страшно оставить машину</h2>
+    <div class="why">
+      <figure><img src="img/lounge.jpg" alt="Зона ожидания с диванами" loading="lazy"><figcaption><b>Ждите с комфортом</b><span>Кофе, Wi-Fi и окно в бокс: видно, кто и что делает с машиной</span></figcaption></figure>
+      <figure><img src="img/keys.jpg" alt="Передача ключей от машины" loading="lazy"><figcaption><b>Ключи из рук в руки</b><span>Отдаём машину с отчётом: что сделали, что заменили и когда приехать снова</span></figcaption></figure>
+    </div>
+    <div class="pts">
+      <div><b>1 год</b><span>гарантия на работы</span></div>
+      <div><b>0 ₽</b><span>диагностика при ремонте у нас</span></div>
+      <div><b>30 мин</b><span>замена масла, пока пьёте кофе</span></div>
+      <div><b>4,9 ★</b><span>оценка на картах</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Отзывы</span>
+    <h2>Что говорят водители</h2>
+    <div class="rv">
+      <article><div class="st">★★★★★</div><p>Записался вечером с телефона, утром приехал к назначенному часу. Цена совпала с той, что показал сайт, до рубля.</p><footer>Артём · Kia Rio, ТО</footer></article>
+      <article><div class="st">★★★★★</div><p>Понравилось, что прислали фото старых колодок и спросили, менять ли диски. Никакой самодеятельности за мой счёт.</p><footer>Наталья · Toyota RAV4, тормоза</footer></article>
+      <article><div class="st">★★★★★</div><p>Смотрел статус ремонта прямо с работы. Когда загорелось «Готова», просто поехал забирать.</p><footer>Руслан · Hyundai Solaris, двигатель</footer></article>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <span class="kicker">Вопросы</span>
+    <h2>Частые вопросы</h2>
+    <div class="faq">
+      <details><summary>Можно приехать со своими запчастями?</summary><p>Да. Проверим их перед установкой и дадим гарантию на работу. На сами детали гарантию даёт продавец.</p></details>
+      <details><summary>А если при ремонте найдёте что-то ещё?</summary><p>Пришлём фото и цену в WhatsApp. Без вашего «да» ничего сверх записи не делаем.</p></details>
+      <details><summary>Сколько ждать диагностику?</summary><p>Компьютерная диагностика занимает 30–40 минут. Можно подождать в зоне отдыха.</p></details>
+      <details><summary>Как оплатить?</summary><p>Картой, наличными или переводом после приёмки работ. Для компаний работаем по безналу.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="contacts" style="padding-top:0">
+  <div class="wrap">
+    <span class="kicker">Контакты</span>
+    <h2>Как нас найти</h2>
+    <dl class="cgrid">
+      <div class="cbox"><dt>Адрес</dt><dd>ул. Промышленная, 14, бокс 3</dd></div>
+      <div class="cbox"><dt>Часы работы</dt><dd>Ежедневно с 9:00 до 21:00</dd></div>
+      <div class="cbox"><dt>Телефон</dt><dd><a href="tel:+79990000000" style="text-decoration:none">+7 (999) 000-00-00</a></dd></div>
+    </dl>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap row">
+    <div><b style="font-family:Unbounded,sans-serif;font-size:16px;color:var(--ink)">Мотор Лаб</b><br>© 2026 · демо-сайт, все данные вымышленные</div>
+    <div style="align-self:flex-end"><a href="https://t.me/abanev_dev" target="_blank" rel="noopener">FOR.MI designed &amp; developed by ABN</a></div>
+  </div>
+</footer>
+
+<div class="mbar hide" id="mbar">
+  <a class="btn btn-acc" href="#book">Рассчитать и записаться</a>
+  <a class="btn call demo-link" href="#" aria-label="Позвонить"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></a>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const $=s=>document.querySelector(s);
+const rub=n=>n.toLocaleString("ru-RU").replace(/ /g," ")+" ₽";
+const esc=s=>s.replace(/[<>&"]/g,"");
+const WORKS=[
+  {id:"diag",name:"Компьютерная диагностика",price:1500,min:40,img:"img/laptop.jpg",desc:"Считываем ошибки всех блоков и проверяем датчики. При ремонте у нас бесплатно."},
+  {id:"oil",name:"Замена масла и фильтра",price:1200,min:30,img:"img/oil.jpg",desc:"Масло ваше или наше. Сбрасываем сервисный интервал."},
+  {id:"to",name:"ТО по регламенту",price:4500,min:120,img:"img/mechanic.jpg",desc:"Масло, фильтры, свечи и проверка по 30 пунктам."},
+  {id:"tires",name:"Шиномонтаж 4 колёс",price:2400,min:50,img:"img/tires.jpg",desc:"Снятие, балансировка и установка. Храним шины до сезона."},
+  {id:"pads",name:"Замена тормозных колодок",price:1800,min:60,desc:"Передняя или задняя ось"},
+  {id:"susp",name:"Диагностика подвески",price:800,min:30,desc:"На подъёмнике, с отчётом"},
+  {id:"ac",name:"Заправка кондиционера",price:2500,min:40,desc:"С проверкой на утечки"},
+  {id:"elec",name:"Поиск неисправности электрики",price:2000,min:60,desc:"Цена за первый час"}
+];
+const K={"Lada":1,"Kia":1,"Hyundai":1,"Renault":1,"Volkswagen":1.1,"Skoda":1.1,"Toyota":1.15,"Nissan":1.1,"Mazda":1.15,"Chery":1,"Haval":1.1,"Geely":1.1,"Mitsubishi":1.15,"BMW":1.4,"Mercedes-Benz":1.4,"Audi":1.35,"Lexus":1.4,"Другая":1.1};
+const st={sel:new Set(["diag"]),day:new Date().getHours()>=19?1:0,time:null};
+
+/* service cards */
+$("#svcs").innerHTML=WORKS.filter(w=>w.img).map(w=>`<article class="svc"><div class="ph"><img src="${w.img}" alt="${w.name}" loading="lazy"></div><div class="b"><h3>${w.name}</h3><p>${w.desc}</p><div class="row"><b>от ${rub(w.price)}</b><button data-w="${w.id}">Записаться →</button></div></div></article>`).join("")
+ +`<article class="svc list"><h3>Ещё работы</h3><ul>${WORKS.filter(w=>!w.img).map(w=>`<li><span>${w.name}</span><b>от ${rub(w.price)}</b></li>`).join("")}</ul><div class="ask"><b>Не нашли свою работу?</b><span>Опишите, что стучит или горит на панели. Мастер ответит в WhatsApp с ценой за 15 минут.</span><a class="btn btn-acc demo-link" href="#">Спросить мастера</a></div></article>`;
+$("#svcs").addEventListener("click",e=>{const b=e.target.closest("button[data-w]");if(!b)return;st.sel=new Set([b.dataset.w]);renderWorks();renderSum();$("#book").scrollIntoView({behavior:"smooth"})});
+
+/* car */
+$("#cBrand").innerHTML=Object.keys(K).map(b=>`<option>${b}</option>`).join("");
+const y=new Date().getFullYear();$("#cYear").innerHTML=[...Array(26)].map((_,i)=>`<option>${y-i}</option>`).join("");$("#cYear").value=y-6;
+$("#cBrand").addEventListener("change",renderSum);$("#cYear").addEventListener("change",renderSum);
+
+function renderWorks(){
+  $("#works").innerHTML=WORKS.map(w=>`<label class="wk"><input type="checkbox" value="${w.id}" ${st.sel.has(w.id)?"checked":""}><span>${w.name}<small>${w.min<60?w.min+" мин":Math.floor(w.min/60)+" ч"+(w.min%60?" "+w.min%60+" мин":"")}</small></span></label>`).join("");
+}
+$("#works").addEventListener("change",e=>{const v=e.target.value;e.target.checked?st.sel.add(v):st.sel.delete(v);renderSum()});
+
+const DOW=["вс","пн","вт","ср","чт","пт","сб"],MONg=["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"];
+const today=new Date();today.setHours(0,0,0,0);
+const days=[...Array(10)].map((_,i)=>{const d=new Date(today);d.setDate(d.getDate()+i);return d});
+function renderDays(){$("#bDays").innerHTML=days.map((d,i)=>`<button class="chip" aria-pressed="${st.day===i}" data-d="${i}">${i===0?"сегодня":i===1?"завтра":DOW[d.getDay()]}<b>${d.getDate()}</b></button>`).join("")}
+function renderTimes(){
+  const now=new Date(),sl=[];for(let h=9;h<=19;h++)sl.push(h+":00");
+  $("#bTimes").innerHTML=sl.map((t,i)=>{const dis=(st.day===0&&parseInt(t)<=now.getHours()+1)||((st.day*7+i*5)%6===0);return `<button class="chip" ${dis?"disabled":""} aria-pressed="${st.time===t}" data-t="${t}">${t}</button>`}).join("");
+}
+$("#bDays").addEventListener("click",e=>{const b=e.target.closest(".chip");if(b){st.day=+b.dataset.d;st.time=null;renderDays();renderTimes();renderSum()}});
+$("#bTimes").addEventListener("click",e=>{const b=e.target.closest(".chip");if(b&&!b.disabled){st.time=b.dataset.t;renderTimes();renderSum()}});
+
+function calc(){
+  const k=K[$("#cBrand").value]*(+$("#cYear").value<y-15?1.1:1);
+  const ws=WORKS.filter(w=>st.sel.has(w.id));
+  const items=ws.map(w=>({...w,p:Math.round(w.price*k/50)*50}));
+  return {items,total:items.reduce((s,w)=>s+w.p,0),min:items.reduce((s,w)=>s+w.min,0),k};
+}
+const durTxt=m=>m<60?m+" мин":Math.floor(m/60)+" ч"+(m%60?" "+m%60+" мин":"");
+const dTxt=i=>{const d=days[i];return DOW[d.getDay()]+", "+d.getDate()+" "+MONg[d.getMonth()]};
+function renderSum(){
+  const c=calc();
+  $("#rows").innerHTML=`<li><span>Машина</span>${esc($("#cBrand").value+" "+$("#cModel").value).trim()}, ${$("#cYear").value}</li>`+c.items.map(w=>`<li><span>${w.name}</span>${rub(w.p)}</li>`).join("")+(st.time?`<li><span>Когда</span>${dTxt(st.day)}, ${st.time}</li>`:"");
+  $("#total").textContent=rub(c.total);
+  $("#note").textContent=!c.items.length?"Отметьте хотя бы одну работу":`Займёт около ${durTxt(c.min)}.${c.k>1?" Цена с учётом марки и года.":""} Цена фиксируется при записи.`;
+}
+$("#cModel").addEventListener("input",renderSum);
+
+/* phone mask: +7 and max 10 digits */
+const fmtPhone=v=>{const dg=x=>x.replace(/\D/g,"");let p;if(v.trim().startsWith("+7"))p=dg(v.trim().slice(2));else{p=dg(v);if(!p)return "";if(/^[78]/.test(p))p=p.slice(1)}if(p.length>10&&/^[78]/.test(p))p=p.slice(1);p=p.slice(0,10);let s="+7";if(p.length)s+=" ("+p.slice(0,3);if(p.length>3)s+=") "+p.slice(3,6);if(p.length>6)s+="-"+p.slice(6,8);if(p.length>8)s+="-"+p.slice(8,10);return s};
+function mask(el){el.addEventListener("input",()=>{el.value=fmtPhone(el.value)});el.addEventListener("focus",()=>{if(!el.value)el.value="+7 ("});el.addEventListener("blur",()=>{if(el.value.replace(/\D/g,"").length<=1)el.value=""})}
+const phoneOk=el=>el.value.replace(/\D/g,"").length===11;
+mask($("#bPhone"));mask($("#tPhone"));
+
+$("#bGo").addEventListener("click",()=>{
+  const err=$("#bErr"),name=$("#bName").value.trim(),c=calc();
+  if(!c.items.length){err.textContent="Отметьте, что нужно сделать";return}
+  if(!st.time){err.textContent="Выберите время";$("#bTimes").scrollIntoView({behavior:"smooth",block:"center"});return}
+  if(name.length<2){err.textContent="Напишите, как к вам обращаться";$("#bName").focus();return}
+  if(!phoneOk($("#bPhone"))){err.textContent="Введите номер полностью: 10 цифр после +7";$("#bPhone").focus();return}
+  err.textContent="";
+  const car=esc(($("#cBrand").value+" "+$("#cModel").value).trim())+", "+$("#cYear").value;
+  $("#doneTxt").innerHTML=`${esc(name)}, ждём вас <b>${dTxt(st.day)} в ${st.time}</b>. Напомним за 2 часа. Статус ремонта можно смотреть на сайте по номеру телефона.`;
+  $("#tgMsg").innerHTML=`🔧 <b>Новая запись с сайта</b><br>${car}<br>${c.items.map(w=>w.name).join(", ")}<br>${dTxt(st.day)}, ${st.time} (≈${durTxt(c.min)})<br>${esc(name)}, ${$("#bPhone").value}<br>Сумма: ${rub(c.total)}`;
+  const n=new Date();$("#tgTm").textContent=n.getHours()+":"+String(n.getMinutes()).padStart(2,"0");
+  $("#sumForm").hidden=true;$("#sumDone").hidden=false;$("#sum").scrollIntoView({behavior:"smooth",block:"start"});
+});
+$("#bAgain").addEventListener("click",()=>{st.time=null;$("#bName").value="";$("#bPhone").value="";$("#sumDone").hidden=true;$("#sumForm").hidden=false;renderTimes();renderSum()});
+
+$("#tForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  if(!phoneOk($("#tPhone"))){$("#tErr").textContent="Введите номер полностью: 10 цифр после +7";$("#steps").classList.remove("show");return}
+  $("#tErr").textContent="";$("#steps").classList.add("show");
+});
+
+/* misc */
+(()=>{const h=new Date().getHours();if(h>=19||h<9){$("#liveTxt").textContent="Завтра есть свободные окна";$("#liveSlot").textContent="завтра в 9:00"}})();
+const toast=t=>{const el=$("#toast");el.textContent=t;el.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove("show"),2400)};
+document.querySelectorAll(".demo-link").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();toast("В настоящем сервисе кнопка откроет связь с мастером")}));
+const bar=$("#mbar"),bk=$("#book");
+addEventListener("scroll",()=>{$("header").classList.toggle("scrolled",scrollY>10);const r=bk.getBoundingClientRect();bar.classList.toggle("hide",scrollY<450||(r.top<innerHeight*.7&&r.bottom>innerHeight*.3))},{passive:true});
+renderWorks();renderDays();renderTimes();renderSum();
+</script>
+</body>
+</html>
